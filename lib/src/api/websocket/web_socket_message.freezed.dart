@@ -12,11 +12,32 @@ part of 'web_socket_message.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 WebSocketMessage _$WebSocketMessageFromJson(Map<String, dynamic> json) {
   return _WebSocketMessage.fromJson(json);
 }
+
+/// @nodoc
+class _$WebSocketMessageTearOff {
+  const _$WebSocketMessageTearOff();
+
+  _WebSocketMessage call(
+      {required String topic, required String type, required String payload}) {
+    return _WebSocketMessage(
+      topic: topic,
+      type: type,
+      payload: payload,
+    );
+  }
+
+  WebSocketMessage fromJson(Map<String, Object?> json) {
+    return WebSocketMessage.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $WebSocketMessage = _$WebSocketMessageTearOff();
 
 /// @nodoc
 mixin _$WebSocketMessage {
@@ -71,25 +92,25 @@ class _$WebSocketMessageCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_WebSocketMessageCopyWith<$Res>
+abstract class _$WebSocketMessageCopyWith<$Res>
     implements $WebSocketMessageCopyWith<$Res> {
-  factory _$$_WebSocketMessageCopyWith(
-          _$_WebSocketMessage value, $Res Function(_$_WebSocketMessage) then) =
-      __$$_WebSocketMessageCopyWithImpl<$Res>;
+  factory _$WebSocketMessageCopyWith(
+          _WebSocketMessage value, $Res Function(_WebSocketMessage) then) =
+      __$WebSocketMessageCopyWithImpl<$Res>;
   @override
   $Res call({String topic, String type, String payload});
 }
 
 /// @nodoc
-class __$$_WebSocketMessageCopyWithImpl<$Res>
+class __$WebSocketMessageCopyWithImpl<$Res>
     extends _$WebSocketMessageCopyWithImpl<$Res>
-    implements _$$_WebSocketMessageCopyWith<$Res> {
-  __$$_WebSocketMessageCopyWithImpl(
-      _$_WebSocketMessage _value, $Res Function(_$_WebSocketMessage) _then)
-      : super(_value, (v) => _then(v as _$_WebSocketMessage));
+    implements _$WebSocketMessageCopyWith<$Res> {
+  __$WebSocketMessageCopyWithImpl(
+      _WebSocketMessage _value, $Res Function(_WebSocketMessage) _then)
+      : super(_value, (v) => _then(v as _WebSocketMessage));
 
   @override
-  _$_WebSocketMessage get _value => super._value as _$_WebSocketMessage;
+  _WebSocketMessage get _value => super._value as _WebSocketMessage;
 
   @override
   $Res call({
@@ -97,7 +118,7 @@ class __$$_WebSocketMessageCopyWithImpl<$Res>
     Object? type = freezed,
     Object? payload = freezed,
   }) {
-    return _then(_$_WebSocketMessage(
+    return _then(_WebSocketMessage(
       topic: topic == freezed
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
@@ -139,13 +160,12 @@ class _$_WebSocketMessage implements _WebSocketMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WebSocketMessage &&
+            other is _WebSocketMessage &&
             const DeepCollectionEquality().equals(other.topic, topic) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.payload, payload));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -155,8 +175,8 @@ class _$_WebSocketMessage implements _WebSocketMessage {
 
   @JsonKey(ignore: true)
   @override
-  _$$_WebSocketMessageCopyWith<_$_WebSocketMessage> get copyWith =>
-      __$$_WebSocketMessageCopyWithImpl<_$_WebSocketMessage>(this, _$identity);
+  _$WebSocketMessageCopyWith<_WebSocketMessage> get copyWith =>
+      __$WebSocketMessageCopyWithImpl<_WebSocketMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -166,21 +186,21 @@ class _$_WebSocketMessage implements _WebSocketMessage {
 
 abstract class _WebSocketMessage implements WebSocketMessage {
   const factory _WebSocketMessage(
-      {required final String topic,
-      required final String type,
-      required final String payload}) = _$_WebSocketMessage;
+      {required String topic,
+      required String type,
+      required String payload}) = _$_WebSocketMessage;
 
   factory _WebSocketMessage.fromJson(Map<String, dynamic> json) =
       _$_WebSocketMessage.fromJson;
 
   @override
-  String get topic => throw _privateConstructorUsedError;
+  String get topic;
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
-  String get payload => throw _privateConstructorUsedError;
+  String get payload;
   @override
   @JsonKey(ignore: true)
-  _$$_WebSocketMessageCopyWith<_$_WebSocketMessage> get copyWith =>
+  _$WebSocketMessageCopyWith<_WebSocketMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,6 +28,10 @@ class ViteConnectException implements Exception {
 
   ViteConnectException(this.message, {this.code = 0, this.data});
 
+  ViteConnectException.sessionReject() : this('Session Rejected', code: 11010);
+  ViteConnectException.requestReject() : this('Request Rejected', code: 11011);
+  ViteConnectException.cancelReject() : this('User Canceled', code: 11012);
+
   /// An exception indicating that the method named [methodName] was not found.
   ///
   /// This should usually be used only by fallback handlers.

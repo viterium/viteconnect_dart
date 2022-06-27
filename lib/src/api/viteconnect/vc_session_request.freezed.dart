@@ -12,11 +12,31 @@ part of 'vc_session_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VCSessionRequest _$VCSessionRequestFromJson(Map<String, dynamic> json) {
   return _VCSessionRequest.fromJson(json);
 }
+
+/// @nodoc
+class _$VCSessionRequestTearOff {
+  const _$VCSessionRequestTearOff();
+
+  _VCSessionRequest call({int? chainId, String? peerId, PeerMeta? peerMeta}) {
+    return _VCSessionRequest(
+      chainId: chainId,
+      peerId: peerId,
+      peerMeta: peerMeta,
+    );
+  }
+
+  VCSessionRequest fromJson(Map<String, Object?> json) {
+    return VCSessionRequest.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $VCSessionRequest = _$VCSessionRequestTearOff();
 
 /// @nodoc
 mixin _$VCSessionRequest {
@@ -84,11 +104,11 @@ class _$VCSessionRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_VCSessionRequestCopyWith<$Res>
+abstract class _$VCSessionRequestCopyWith<$Res>
     implements $VCSessionRequestCopyWith<$Res> {
-  factory _$$_VCSessionRequestCopyWith(
-          _$_VCSessionRequest value, $Res Function(_$_VCSessionRequest) then) =
-      __$$_VCSessionRequestCopyWithImpl<$Res>;
+  factory _$VCSessionRequestCopyWith(
+          _VCSessionRequest value, $Res Function(_VCSessionRequest) then) =
+      __$VCSessionRequestCopyWithImpl<$Res>;
   @override
   $Res call({int? chainId, String? peerId, PeerMeta? peerMeta});
 
@@ -97,15 +117,15 @@ abstract class _$$_VCSessionRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VCSessionRequestCopyWithImpl<$Res>
+class __$VCSessionRequestCopyWithImpl<$Res>
     extends _$VCSessionRequestCopyWithImpl<$Res>
-    implements _$$_VCSessionRequestCopyWith<$Res> {
-  __$$_VCSessionRequestCopyWithImpl(
-      _$_VCSessionRequest _value, $Res Function(_$_VCSessionRequest) _then)
-      : super(_value, (v) => _then(v as _$_VCSessionRequest));
+    implements _$VCSessionRequestCopyWith<$Res> {
+  __$VCSessionRequestCopyWithImpl(
+      _VCSessionRequest _value, $Res Function(_VCSessionRequest) _then)
+      : super(_value, (v) => _then(v as _VCSessionRequest));
 
   @override
-  _$_VCSessionRequest get _value => super._value as _$_VCSessionRequest;
+  _VCSessionRequest get _value => super._value as _VCSessionRequest;
 
   @override
   $Res call({
@@ -113,7 +133,7 @@ class __$$_VCSessionRequestCopyWithImpl<$Res>
     Object? peerId = freezed,
     Object? peerMeta = freezed,
   }) {
-    return _then(_$_VCSessionRequest(
+    return _then(_VCSessionRequest(
       chainId: chainId == freezed
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
@@ -154,13 +174,12 @@ class _$_VCSessionRequest implements _VCSessionRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VCSessionRequest &&
+            other is _VCSessionRequest &&
             const DeepCollectionEquality().equals(other.chainId, chainId) &&
             const DeepCollectionEquality().equals(other.peerId, peerId) &&
             const DeepCollectionEquality().equals(other.peerMeta, peerMeta));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -170,8 +189,8 @@ class _$_VCSessionRequest implements _VCSessionRequest {
 
   @JsonKey(ignore: true)
   @override
-  _$$_VCSessionRequestCopyWith<_$_VCSessionRequest> get copyWith =>
-      __$$_VCSessionRequestCopyWithImpl<_$_VCSessionRequest>(this, _$identity);
+  _$VCSessionRequestCopyWith<_VCSessionRequest> get copyWith =>
+      __$VCSessionRequestCopyWithImpl<_VCSessionRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -181,21 +200,19 @@ class _$_VCSessionRequest implements _VCSessionRequest {
 
 abstract class _VCSessionRequest implements VCSessionRequest {
   const factory _VCSessionRequest(
-      {final int? chainId,
-      final String? peerId,
-      final PeerMeta? peerMeta}) = _$_VCSessionRequest;
+      {int? chainId, String? peerId, PeerMeta? peerMeta}) = _$_VCSessionRequest;
 
   factory _VCSessionRequest.fromJson(Map<String, dynamic> json) =
       _$_VCSessionRequest.fromJson;
 
   @override
-  int? get chainId => throw _privateConstructorUsedError;
+  int? get chainId;
   @override
-  String? get peerId => throw _privateConstructorUsedError;
+  String? get peerId;
   @override
-  PeerMeta? get peerMeta => throw _privateConstructorUsedError;
+  PeerMeta? get peerMeta;
   @override
   @JsonKey(ignore: true)
-  _$$_VCSessionRequestCopyWith<_$_VCSessionRequest> get copyWith =>
+  _$VCSessionRequestCopyWith<_VCSessionRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }

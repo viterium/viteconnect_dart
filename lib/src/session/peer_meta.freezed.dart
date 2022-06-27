@@ -12,11 +12,33 @@ part of 'peer_meta.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PeerMeta _$PeerMetaFromJson(Map<String, dynamic> json) {
   return _PeerMeta.fromJson(json);
 }
+
+/// @nodoc
+class _$PeerMetaTearOff {
+  const _$PeerMetaTearOff();
+
+  _PeerMeta call(
+      {String? url, String? name, String? description, List<String>? icons}) {
+    return _PeerMeta(
+      url: url,
+      name: name,
+      description: description,
+      icons: icons,
+    );
+  }
+
+  PeerMeta fromJson(Map<String, Object?> json) {
+    return PeerMeta.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PeerMeta = _$PeerMetaTearOff();
 
 /// @nodoc
 mixin _$PeerMeta {
@@ -76,24 +98,22 @@ class _$PeerMetaCopyWithImpl<$Res> implements $PeerMetaCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_PeerMetaCopyWith<$Res> implements $PeerMetaCopyWith<$Res> {
-  factory _$$_PeerMetaCopyWith(
-          _$_PeerMeta value, $Res Function(_$_PeerMeta) then) =
-      __$$_PeerMetaCopyWithImpl<$Res>;
+abstract class _$PeerMetaCopyWith<$Res> implements $PeerMetaCopyWith<$Res> {
+  factory _$PeerMetaCopyWith(_PeerMeta value, $Res Function(_PeerMeta) then) =
+      __$PeerMetaCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? url, String? name, String? description, List<String>? icons});
 }
 
 /// @nodoc
-class __$$_PeerMetaCopyWithImpl<$Res> extends _$PeerMetaCopyWithImpl<$Res>
-    implements _$$_PeerMetaCopyWith<$Res> {
-  __$$_PeerMetaCopyWithImpl(
-      _$_PeerMeta _value, $Res Function(_$_PeerMeta) _then)
-      : super(_value, (v) => _then(v as _$_PeerMeta));
+class __$PeerMetaCopyWithImpl<$Res> extends _$PeerMetaCopyWithImpl<$Res>
+    implements _$PeerMetaCopyWith<$Res> {
+  __$PeerMetaCopyWithImpl(_PeerMeta _value, $Res Function(_PeerMeta) _then)
+      : super(_value, (v) => _then(v as _PeerMeta));
 
   @override
-  _$_PeerMeta get _value => super._value as _$_PeerMeta;
+  _PeerMeta get _value => super._value as _PeerMeta;
 
   @override
   $Res call({
@@ -102,7 +122,7 @@ class __$$_PeerMetaCopyWithImpl<$Res> extends _$PeerMetaCopyWithImpl<$Res>
     Object? description = freezed,
     Object? icons = freezed,
   }) {
-    return _then(_$_PeerMeta(
+    return _then(_PeerMeta(
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -116,7 +136,7 @@ class __$$_PeerMetaCopyWithImpl<$Res> extends _$PeerMetaCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       icons: icons == freezed
-          ? _value._icons
+          ? _value.icons
           : icons // ignore: cast_nullable_to_non_nullable
               as List<String>?,
     ));
@@ -126,9 +146,7 @@ class __$$_PeerMetaCopyWithImpl<$Res> extends _$PeerMetaCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PeerMeta implements _PeerMeta {
-  const _$_PeerMeta(
-      {this.url, this.name, this.description, final List<String>? icons})
-      : _icons = icons;
+  const _$_PeerMeta({this.url, this.name, this.description, this.icons});
 
   factory _$_PeerMeta.fromJson(Map<String, dynamic> json) =>
       _$$_PeerMetaFromJson(json);
@@ -139,14 +157,8 @@ class _$_PeerMeta implements _PeerMeta {
   final String? name;
   @override
   final String? description;
-  final List<String>? _icons;
   @override
-  List<String>? get icons {
-    final value = _icons;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final List<String>? icons;
 
   @override
   String toString() {
@@ -157,27 +169,26 @@ class _$_PeerMeta implements _PeerMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PeerMeta &&
+            other is _PeerMeta &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other._icons, _icons));
+            const DeepCollectionEquality().equals(other.icons, icons));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(_icons));
+      const DeepCollectionEquality().hash(icons));
 
   @JsonKey(ignore: true)
   @override
-  _$$_PeerMetaCopyWith<_$_PeerMeta> get copyWith =>
-      __$$_PeerMetaCopyWithImpl<_$_PeerMeta>(this, _$identity);
+  _$PeerMetaCopyWith<_PeerMeta> get copyWith =>
+      __$PeerMetaCopyWithImpl<_PeerMeta>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -187,23 +198,23 @@ class _$_PeerMeta implements _PeerMeta {
 
 abstract class _PeerMeta implements PeerMeta {
   const factory _PeerMeta(
-      {final String? url,
-      final String? name,
-      final String? description,
-      final List<String>? icons}) = _$_PeerMeta;
+      {String? url,
+      String? name,
+      String? description,
+      List<String>? icons}) = _$_PeerMeta;
 
   factory _PeerMeta.fromJson(Map<String, dynamic> json) = _$_PeerMeta.fromJson;
 
   @override
-  String? get url => throw _privateConstructorUsedError;
+  String? get url;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get name;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  List<String>? get icons => throw _privateConstructorUsedError;
+  List<String>? get icons;
   @override
   @JsonKey(ignore: true)
-  _$$_PeerMetaCopyWith<_$_PeerMeta> get copyWith =>
+  _$PeerMetaCopyWith<_PeerMeta> get copyWith =>
       throw _privateConstructorUsedError;
 }

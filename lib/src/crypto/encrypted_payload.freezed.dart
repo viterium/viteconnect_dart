@@ -12,11 +12,32 @@ part of 'encrypted_payload.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 EncryptedPayload _$EncryptedPayloadFromJson(Map<String, dynamic> json) {
   return _EncryptedPayload.fromJson(json);
 }
+
+/// @nodoc
+class _$EncryptedPayloadTearOff {
+  const _$EncryptedPayloadTearOff();
+
+  _EncryptedPayload call(
+      {required String data, required String hmac, required String iv}) {
+    return _EncryptedPayload(
+      data: data,
+      hmac: hmac,
+      iv: iv,
+    );
+  }
+
+  EncryptedPayload fromJson(Map<String, Object?> json) {
+    return EncryptedPayload.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $EncryptedPayload = _$EncryptedPayloadTearOff();
 
 /// @nodoc
 mixin _$EncryptedPayload {
@@ -71,25 +92,25 @@ class _$EncryptedPayloadCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_EncryptedPayloadCopyWith<$Res>
+abstract class _$EncryptedPayloadCopyWith<$Res>
     implements $EncryptedPayloadCopyWith<$Res> {
-  factory _$$_EncryptedPayloadCopyWith(
-          _$_EncryptedPayload value, $Res Function(_$_EncryptedPayload) then) =
-      __$$_EncryptedPayloadCopyWithImpl<$Res>;
+  factory _$EncryptedPayloadCopyWith(
+          _EncryptedPayload value, $Res Function(_EncryptedPayload) then) =
+      __$EncryptedPayloadCopyWithImpl<$Res>;
   @override
   $Res call({String data, String hmac, String iv});
 }
 
 /// @nodoc
-class __$$_EncryptedPayloadCopyWithImpl<$Res>
+class __$EncryptedPayloadCopyWithImpl<$Res>
     extends _$EncryptedPayloadCopyWithImpl<$Res>
-    implements _$$_EncryptedPayloadCopyWith<$Res> {
-  __$$_EncryptedPayloadCopyWithImpl(
-      _$_EncryptedPayload _value, $Res Function(_$_EncryptedPayload) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedPayload));
+    implements _$EncryptedPayloadCopyWith<$Res> {
+  __$EncryptedPayloadCopyWithImpl(
+      _EncryptedPayload _value, $Res Function(_EncryptedPayload) _then)
+      : super(_value, (v) => _then(v as _EncryptedPayload));
 
   @override
-  _$_EncryptedPayload get _value => super._value as _$_EncryptedPayload;
+  _EncryptedPayload get _value => super._value as _EncryptedPayload;
 
   @override
   $Res call({
@@ -97,7 +118,7 @@ class __$$_EncryptedPayloadCopyWithImpl<$Res>
     Object? hmac = freezed,
     Object? iv = freezed,
   }) {
-    return _then(_$_EncryptedPayload(
+    return _then(_EncryptedPayload(
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -139,13 +160,12 @@ class _$_EncryptedPayload implements _EncryptedPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EncryptedPayload &&
+            other is _EncryptedPayload &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.hmac, hmac) &&
             const DeepCollectionEquality().equals(other.iv, iv));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -155,8 +175,8 @@ class _$_EncryptedPayload implements _EncryptedPayload {
 
   @JsonKey(ignore: true)
   @override
-  _$$_EncryptedPayloadCopyWith<_$_EncryptedPayload> get copyWith =>
-      __$$_EncryptedPayloadCopyWithImpl<_$_EncryptedPayload>(this, _$identity);
+  _$EncryptedPayloadCopyWith<_EncryptedPayload> get copyWith =>
+      __$EncryptedPayloadCopyWithImpl<_EncryptedPayload>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -166,21 +186,21 @@ class _$_EncryptedPayload implements _EncryptedPayload {
 
 abstract class _EncryptedPayload implements EncryptedPayload {
   const factory _EncryptedPayload(
-      {required final String data,
-      required final String hmac,
-      required final String iv}) = _$_EncryptedPayload;
+      {required String data,
+      required String hmac,
+      required String iv}) = _$_EncryptedPayload;
 
   factory _EncryptedPayload.fromJson(Map<String, dynamic> json) =
       _$_EncryptedPayload.fromJson;
 
   @override
-  String get data => throw _privateConstructorUsedError;
+  String get data;
   @override
-  String get hmac => throw _privateConstructorUsedError;
+  String get hmac;
   @override
-  String get iv => throw _privateConstructorUsedError;
+  String get iv;
   @override
   @JsonKey(ignore: true)
-  _$$_EncryptedPayloadCopyWith<_$_EncryptedPayload> get copyWith =>
+  _$EncryptedPayloadCopyWith<_EncryptedPayload> get copyWith =>
       throw _privateConstructorUsedError;
 }

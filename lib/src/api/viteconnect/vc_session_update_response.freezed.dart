@@ -12,12 +12,37 @@ part of 'vc_session_update_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VCSessionUpdateResponse _$VCSessionUpdateResponseFromJson(
     Map<String, dynamic> json) {
   return _VCSessionUpdateResponse.fromJson(json);
 }
+
+/// @nodoc
+class _$VCSessionUpdateResponseTearOff {
+  const _$VCSessionUpdateResponseTearOff();
+
+  _VCSessionUpdateResponse call(
+      {bool approved = false,
+      int chainId = 0,
+      List<String> accounts = const [],
+      int networkId = 0}) {
+    return _VCSessionUpdateResponse(
+      approved: approved,
+      chainId: chainId,
+      accounts: accounts,
+      networkId: networkId,
+    );
+  }
+
+  VCSessionUpdateResponse fromJson(Map<String, Object?> json) {
+    return VCSessionUpdateResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $VCSessionUpdateResponse = _$VCSessionUpdateResponseTearOff();
 
 /// @nodoc
 mixin _$VCSessionUpdateResponse {
@@ -78,26 +103,26 @@ class _$VCSessionUpdateResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_VCSessionUpdateResponseCopyWith<$Res>
+abstract class _$VCSessionUpdateResponseCopyWith<$Res>
     implements $VCSessionUpdateResponseCopyWith<$Res> {
-  factory _$$_VCSessionUpdateResponseCopyWith(_$_VCSessionUpdateResponse value,
-          $Res Function(_$_VCSessionUpdateResponse) then) =
-      __$$_VCSessionUpdateResponseCopyWithImpl<$Res>;
+  factory _$VCSessionUpdateResponseCopyWith(_VCSessionUpdateResponse value,
+          $Res Function(_VCSessionUpdateResponse) then) =
+      __$VCSessionUpdateResponseCopyWithImpl<$Res>;
   @override
   $Res call({bool approved, int chainId, List<String> accounts, int networkId});
 }
 
 /// @nodoc
-class __$$_VCSessionUpdateResponseCopyWithImpl<$Res>
+class __$VCSessionUpdateResponseCopyWithImpl<$Res>
     extends _$VCSessionUpdateResponseCopyWithImpl<$Res>
-    implements _$$_VCSessionUpdateResponseCopyWith<$Res> {
-  __$$_VCSessionUpdateResponseCopyWithImpl(_$_VCSessionUpdateResponse _value,
-      $Res Function(_$_VCSessionUpdateResponse) _then)
-      : super(_value, (v) => _then(v as _$_VCSessionUpdateResponse));
+    implements _$VCSessionUpdateResponseCopyWith<$Res> {
+  __$VCSessionUpdateResponseCopyWithImpl(_VCSessionUpdateResponse _value,
+      $Res Function(_VCSessionUpdateResponse) _then)
+      : super(_value, (v) => _then(v as _VCSessionUpdateResponse));
 
   @override
-  _$_VCSessionUpdateResponse get _value =>
-      super._value as _$_VCSessionUpdateResponse;
+  _VCSessionUpdateResponse get _value =>
+      super._value as _VCSessionUpdateResponse;
 
   @override
   $Res call({
@@ -106,7 +131,7 @@ class __$$_VCSessionUpdateResponseCopyWithImpl<$Res>
     Object? accounts = freezed,
     Object? networkId = freezed,
   }) {
-    return _then(_$_VCSessionUpdateResponse(
+    return _then(_VCSessionUpdateResponse(
       approved: approved == freezed
           ? _value.approved
           : approved // ignore: cast_nullable_to_non_nullable
@@ -116,7 +141,7 @@ class __$$_VCSessionUpdateResponseCopyWithImpl<$Res>
           : chainId // ignore: cast_nullable_to_non_nullable
               as int,
       accounts: accounts == freezed
-          ? _value._accounts
+          ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
       networkId: networkId == freezed
@@ -133,29 +158,23 @@ class _$_VCSessionUpdateResponse implements _VCSessionUpdateResponse {
   const _$_VCSessionUpdateResponse(
       {this.approved = false,
       this.chainId = 0,
-      final List<String> accounts = const [],
-      this.networkId = 0})
-      : _accounts = accounts;
+      this.accounts = const [],
+      this.networkId = 0});
 
   factory _$_VCSessionUpdateResponse.fromJson(Map<String, dynamic> json) =>
       _$$_VCSessionUpdateResponseFromJson(json);
 
-  @override
   @JsonKey()
+  @override
   final bool approved;
-  @override
   @JsonKey()
+  @override
   final int chainId;
-  final List<String> _accounts;
-  @override
   @JsonKey()
-  List<String> get accounts {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_accounts);
-  }
-
   @override
+  final List<String> accounts;
   @JsonKey()
+  @override
   final int networkId;
 
   @override
@@ -167,28 +186,26 @@ class _$_VCSessionUpdateResponse implements _VCSessionUpdateResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VCSessionUpdateResponse &&
+            other is _VCSessionUpdateResponse &&
             const DeepCollectionEquality().equals(other.approved, approved) &&
             const DeepCollectionEquality().equals(other.chainId, chainId) &&
-            const DeepCollectionEquality().equals(other._accounts, _accounts) &&
+            const DeepCollectionEquality().equals(other.accounts, accounts) &&
             const DeepCollectionEquality().equals(other.networkId, networkId));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(approved),
       const DeepCollectionEquality().hash(chainId),
-      const DeepCollectionEquality().hash(_accounts),
+      const DeepCollectionEquality().hash(accounts),
       const DeepCollectionEquality().hash(networkId));
 
   @JsonKey(ignore: true)
   @override
-  _$$_VCSessionUpdateResponseCopyWith<_$_VCSessionUpdateResponse>
-      get copyWith =>
-          __$$_VCSessionUpdateResponseCopyWithImpl<_$_VCSessionUpdateResponse>(
-              this, _$identity);
+  _$VCSessionUpdateResponseCopyWith<_VCSessionUpdateResponse> get copyWith =>
+      __$VCSessionUpdateResponseCopyWithImpl<_VCSessionUpdateResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -198,24 +215,24 @@ class _$_VCSessionUpdateResponse implements _VCSessionUpdateResponse {
 
 abstract class _VCSessionUpdateResponse implements VCSessionUpdateResponse {
   const factory _VCSessionUpdateResponse(
-      {final bool approved,
-      final int chainId,
-      final List<String> accounts,
-      final int networkId}) = _$_VCSessionUpdateResponse;
+      {bool approved,
+      int chainId,
+      List<String> accounts,
+      int networkId}) = _$_VCSessionUpdateResponse;
 
   factory _VCSessionUpdateResponse.fromJson(Map<String, dynamic> json) =
       _$_VCSessionUpdateResponse.fromJson;
 
   @override
-  bool get approved => throw _privateConstructorUsedError;
+  bool get approved;
   @override
-  int get chainId => throw _privateConstructorUsedError;
+  int get chainId;
   @override
-  List<String> get accounts => throw _privateConstructorUsedError;
+  List<String> get accounts;
   @override
-  int get networkId => throw _privateConstructorUsedError;
+  int get networkId;
   @override
   @JsonKey(ignore: true)
-  _$$_VCSessionUpdateResponseCopyWith<_$_VCSessionUpdateResponse>
-      get copyWith => throw _privateConstructorUsedError;
+  _$VCSessionUpdateResponseCopyWith<_VCSessionUpdateResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -12,11 +12,36 @@ part of 'json_rpc_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 JsonRpcRequest _$JsonRpcRequestFromJson(Map<String, dynamic> json) {
   return _JsonRpcRequest.fromJson(json);
 }
+
+/// @nodoc
+class _$JsonRpcRequestTearOff {
+  const _$JsonRpcRequestTearOff();
+
+  _JsonRpcRequest call(
+      {required int id,
+      String jsonrpc = '2.0',
+      required String method,
+      List<dynamic>? params}) {
+    return _JsonRpcRequest(
+      id: id,
+      jsonrpc: jsonrpc,
+      method: method,
+      params: params,
+    );
+  }
+
+  JsonRpcRequest fromJson(Map<String, Object?> json) {
+    return JsonRpcRequest.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $JsonRpcRequest = _$JsonRpcRequestTearOff();
 
 /// @nodoc
 mixin _$JsonRpcRequest {
@@ -77,25 +102,25 @@ class _$JsonRpcRequestCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_JsonRpcRequestCopyWith<$Res>
+abstract class _$JsonRpcRequestCopyWith<$Res>
     implements $JsonRpcRequestCopyWith<$Res> {
-  factory _$$_JsonRpcRequestCopyWith(
-          _$_JsonRpcRequest value, $Res Function(_$_JsonRpcRequest) then) =
-      __$$_JsonRpcRequestCopyWithImpl<$Res>;
+  factory _$JsonRpcRequestCopyWith(
+          _JsonRpcRequest value, $Res Function(_JsonRpcRequest) then) =
+      __$JsonRpcRequestCopyWithImpl<$Res>;
   @override
   $Res call({int id, String jsonrpc, String method, List<dynamic>? params});
 }
 
 /// @nodoc
-class __$$_JsonRpcRequestCopyWithImpl<$Res>
+class __$JsonRpcRequestCopyWithImpl<$Res>
     extends _$JsonRpcRequestCopyWithImpl<$Res>
-    implements _$$_JsonRpcRequestCopyWith<$Res> {
-  __$$_JsonRpcRequestCopyWithImpl(
-      _$_JsonRpcRequest _value, $Res Function(_$_JsonRpcRequest) _then)
-      : super(_value, (v) => _then(v as _$_JsonRpcRequest));
+    implements _$JsonRpcRequestCopyWith<$Res> {
+  __$JsonRpcRequestCopyWithImpl(
+      _JsonRpcRequest _value, $Res Function(_JsonRpcRequest) _then)
+      : super(_value, (v) => _then(v as _JsonRpcRequest));
 
   @override
-  _$_JsonRpcRequest get _value => super._value as _$_JsonRpcRequest;
+  _JsonRpcRequest get _value => super._value as _JsonRpcRequest;
 
   @override
   $Res call({
@@ -104,7 +129,7 @@ class __$$_JsonRpcRequestCopyWithImpl<$Res>
     Object? method = freezed,
     Object? params = freezed,
   }) {
-    return _then(_$_JsonRpcRequest(
+    return _then(_JsonRpcRequest(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -118,7 +143,7 @@ class __$$_JsonRpcRequestCopyWithImpl<$Res>
           : method // ignore: cast_nullable_to_non_nullable
               as String,
       params: params == freezed
-          ? _value._params
+          ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as List<dynamic>?,
     ));
@@ -132,27 +157,20 @@ class _$_JsonRpcRequest implements _JsonRpcRequest {
       {required this.id,
       this.jsonrpc = '2.0',
       required this.method,
-      final List<dynamic>? params})
-      : _params = params;
+      this.params});
 
   factory _$_JsonRpcRequest.fromJson(Map<String, dynamic> json) =>
       _$$_JsonRpcRequestFromJson(json);
 
   @override
   final int id;
-  @override
   @JsonKey()
+  @override
   final String jsonrpc;
   @override
   final String method;
-  final List<dynamic>? _params;
   @override
-  List<dynamic>? get params {
-    final value = _params;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final List<dynamic>? params;
 
   @override
   String toString() {
@@ -163,26 +181,25 @@ class _$_JsonRpcRequest implements _JsonRpcRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_JsonRpcRequest &&
+            other is _JsonRpcRequest &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.jsonrpc, jsonrpc) &&
             const DeepCollectionEquality().equals(other.method, method) &&
-            const DeepCollectionEquality().equals(other._params, _params));
+            const DeepCollectionEquality().equals(other.params, params));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(jsonrpc),
       const DeepCollectionEquality().hash(method),
-      const DeepCollectionEquality().hash(_params));
+      const DeepCollectionEquality().hash(params));
 
   @JsonKey(ignore: true)
   @override
-  _$$_JsonRpcRequestCopyWith<_$_JsonRpcRequest> get copyWith =>
-      __$$_JsonRpcRequestCopyWithImpl<_$_JsonRpcRequest>(this, _$identity);
+  _$JsonRpcRequestCopyWith<_JsonRpcRequest> get copyWith =>
+      __$JsonRpcRequestCopyWithImpl<_JsonRpcRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -192,24 +209,24 @@ class _$_JsonRpcRequest implements _JsonRpcRequest {
 
 abstract class _JsonRpcRequest implements JsonRpcRequest {
   const factory _JsonRpcRequest(
-      {required final int id,
-      final String jsonrpc,
-      required final String method,
-      final List<dynamic>? params}) = _$_JsonRpcRequest;
+      {required int id,
+      String jsonrpc,
+      required String method,
+      List<dynamic>? params}) = _$_JsonRpcRequest;
 
   factory _JsonRpcRequest.fromJson(Map<String, dynamic> json) =
       _$_JsonRpcRequest.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int get id;
   @override
-  String get jsonrpc => throw _privateConstructorUsedError;
+  String get jsonrpc;
   @override
-  String get method => throw _privateConstructorUsedError;
+  String get method;
   @override
-  List<dynamic>? get params => throw _privateConstructorUsedError;
+  List<dynamic>? get params;
   @override
   @JsonKey(ignore: true)
-  _$$_JsonRpcRequestCopyWith<_$_JsonRpcRequest> get copyWith =>
+  _$JsonRpcRequestCopyWith<_JsonRpcRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }

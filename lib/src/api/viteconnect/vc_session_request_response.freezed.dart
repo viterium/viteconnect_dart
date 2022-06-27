@@ -12,12 +12,39 @@ part of 'vc_session_request_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VCSessionRequestResponse _$VCSessionRequestResponseFromJson(
     Map<String, dynamic> json) {
   return _VCSessionRequestResponse.fromJson(json);
 }
+
+/// @nodoc
+class _$VCSessionRequestResponseTearOff {
+  const _$VCSessionRequestResponseTearOff();
+
+  _VCSessionRequestResponse call(
+      {bool approved = false,
+      int? chainId,
+      List<String> accounts = const [],
+      String? peerId,
+      PeerMeta? peerMeta}) {
+    return _VCSessionRequestResponse(
+      approved: approved,
+      chainId: chainId,
+      accounts: accounts,
+      peerId: peerId,
+      peerMeta: peerMeta,
+    );
+  }
+
+  VCSessionRequestResponse fromJson(Map<String, Object?> json) {
+    return VCSessionRequestResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $VCSessionRequestResponse = _$VCSessionRequestResponseTearOff();
 
 /// @nodoc
 mixin _$VCSessionRequestResponse {
@@ -102,12 +129,11 @@ class _$VCSessionRequestResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_VCSessionRequestResponseCopyWith<$Res>
+abstract class _$VCSessionRequestResponseCopyWith<$Res>
     implements $VCSessionRequestResponseCopyWith<$Res> {
-  factory _$$_VCSessionRequestResponseCopyWith(
-          _$_VCSessionRequestResponse value,
-          $Res Function(_$_VCSessionRequestResponse) then) =
-      __$$_VCSessionRequestResponseCopyWithImpl<$Res>;
+  factory _$VCSessionRequestResponseCopyWith(_VCSessionRequestResponse value,
+          $Res Function(_VCSessionRequestResponse) then) =
+      __$VCSessionRequestResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool approved,
@@ -121,16 +147,16 @@ abstract class _$$_VCSessionRequestResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VCSessionRequestResponseCopyWithImpl<$Res>
+class __$VCSessionRequestResponseCopyWithImpl<$Res>
     extends _$VCSessionRequestResponseCopyWithImpl<$Res>
-    implements _$$_VCSessionRequestResponseCopyWith<$Res> {
-  __$$_VCSessionRequestResponseCopyWithImpl(_$_VCSessionRequestResponse _value,
-      $Res Function(_$_VCSessionRequestResponse) _then)
-      : super(_value, (v) => _then(v as _$_VCSessionRequestResponse));
+    implements _$VCSessionRequestResponseCopyWith<$Res> {
+  __$VCSessionRequestResponseCopyWithImpl(_VCSessionRequestResponse _value,
+      $Res Function(_VCSessionRequestResponse) _then)
+      : super(_value, (v) => _then(v as _VCSessionRequestResponse));
 
   @override
-  _$_VCSessionRequestResponse get _value =>
-      super._value as _$_VCSessionRequestResponse;
+  _VCSessionRequestResponse get _value =>
+      super._value as _VCSessionRequestResponse;
 
   @override
   $Res call({
@@ -140,7 +166,7 @@ class __$$_VCSessionRequestResponseCopyWithImpl<$Res>
     Object? peerId = freezed,
     Object? peerMeta = freezed,
   }) {
-    return _then(_$_VCSessionRequestResponse(
+    return _then(_VCSessionRequestResponse(
       approved: approved == freezed
           ? _value.approved
           : approved // ignore: cast_nullable_to_non_nullable
@@ -150,7 +176,7 @@ class __$$_VCSessionRequestResponseCopyWithImpl<$Res>
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
       accounts: accounts == freezed
-          ? _value._accounts
+          ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
       peerId: peerId == freezed
@@ -171,28 +197,22 @@ class _$_VCSessionRequestResponse extends _VCSessionRequestResponse {
   const _$_VCSessionRequestResponse(
       {this.approved = false,
       this.chainId,
-      final List<String> accounts = const [],
+      this.accounts = const [],
       this.peerId,
       this.peerMeta})
-      : _accounts = accounts,
-        super._();
+      : super._();
 
   factory _$_VCSessionRequestResponse.fromJson(Map<String, dynamic> json) =>
       _$$_VCSessionRequestResponseFromJson(json);
 
-  @override
   @JsonKey()
+  @override
   final bool approved;
   @override
   final int? chainId;
-  final List<String> _accounts;
-  @override
   @JsonKey()
-  List<String> get accounts {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_accounts);
-  }
-
+  @override
+  final List<String> accounts;
   @override
   final String? peerId;
   @override
@@ -207,29 +227,28 @@ class _$_VCSessionRequestResponse extends _VCSessionRequestResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VCSessionRequestResponse &&
+            other is _VCSessionRequestResponse &&
             const DeepCollectionEquality().equals(other.approved, approved) &&
             const DeepCollectionEquality().equals(other.chainId, chainId) &&
-            const DeepCollectionEquality().equals(other._accounts, _accounts) &&
+            const DeepCollectionEquality().equals(other.accounts, accounts) &&
             const DeepCollectionEquality().equals(other.peerId, peerId) &&
             const DeepCollectionEquality().equals(other.peerMeta, peerMeta));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(approved),
       const DeepCollectionEquality().hash(chainId),
-      const DeepCollectionEquality().hash(_accounts),
+      const DeepCollectionEquality().hash(accounts),
       const DeepCollectionEquality().hash(peerId),
       const DeepCollectionEquality().hash(peerMeta));
 
   @JsonKey(ignore: true)
   @override
-  _$$_VCSessionRequestResponseCopyWith<_$_VCSessionRequestResponse>
-      get copyWith => __$$_VCSessionRequestResponseCopyWithImpl<
-          _$_VCSessionRequestResponse>(this, _$identity);
+  _$VCSessionRequestResponseCopyWith<_VCSessionRequestResponse> get copyWith =>
+      __$VCSessionRequestResponseCopyWithImpl<_VCSessionRequestResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -239,28 +258,28 @@ class _$_VCSessionRequestResponse extends _VCSessionRequestResponse {
 
 abstract class _VCSessionRequestResponse extends VCSessionRequestResponse {
   const factory _VCSessionRequestResponse(
-      {final bool approved,
-      final int? chainId,
-      final List<String> accounts,
-      final String? peerId,
-      final PeerMeta? peerMeta}) = _$_VCSessionRequestResponse;
+      {bool approved,
+      int? chainId,
+      List<String> accounts,
+      String? peerId,
+      PeerMeta? peerMeta}) = _$_VCSessionRequestResponse;
   const _VCSessionRequestResponse._() : super._();
 
   factory _VCSessionRequestResponse.fromJson(Map<String, dynamic> json) =
       _$_VCSessionRequestResponse.fromJson;
 
   @override
-  bool get approved => throw _privateConstructorUsedError;
+  bool get approved;
   @override
-  int? get chainId => throw _privateConstructorUsedError;
+  int? get chainId;
   @override
-  List<String> get accounts => throw _privateConstructorUsedError;
+  List<String> get accounts;
   @override
-  String? get peerId => throw _privateConstructorUsedError;
+  String? get peerId;
   @override
-  PeerMeta? get peerMeta => throw _privateConstructorUsedError;
+  PeerMeta? get peerMeta;
   @override
   @JsonKey(ignore: true)
-  _$$_VCSessionRequestResponseCopyWith<_$_VCSessionRequestResponse>
-      get copyWith => throw _privateConstructorUsedError;
+  _$VCSessionRequestResponseCopyWith<_VCSessionRequestResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }

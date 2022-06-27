@@ -12,14 +12,30 @@ part of 'session_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$SessionStatusTearOff {
+  const _$SessionStatusTearOff();
+
+  _SessionStatus call(
+      {int? chainId, int? networkId, List<String> accounts = const []}) {
+    return _SessionStatus(
+      chainId: chainId,
+      networkId: networkId,
+      accounts: accounts,
+    );
+  }
+}
+
+/// @nodoc
+const $SessionStatus = _$SessionStatusTearOff();
 
 /// @nodoc
 mixin _$SessionStatus {
   int? get chainId => throw _privateConstructorUsedError;
-  List<String> get accounts => throw _privateConstructorUsedError;
   int? get networkId => throw _privateConstructorUsedError;
-  String? get rpcUrl => throw _privateConstructorUsedError;
+  List<String> get accounts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SessionStatusCopyWith<SessionStatus> get copyWith =>
@@ -31,8 +47,7 @@ abstract class $SessionStatusCopyWith<$Res> {
   factory $SessionStatusCopyWith(
           SessionStatus value, $Res Function(SessionStatus) then) =
       _$SessionStatusCopyWithImpl<$Res>;
-  $Res call(
-      {int? chainId, List<String> accounts, int? networkId, String? rpcUrl});
+  $Res call({int? chainId, int? networkId, List<String> accounts});
 }
 
 /// @nodoc
@@ -47,77 +62,66 @@ class _$SessionStatusCopyWithImpl<$Res>
   @override
   $Res call({
     Object? chainId = freezed,
-    Object? accounts = freezed,
     Object? networkId = freezed,
-    Object? rpcUrl = freezed,
+    Object? accounts = freezed,
   }) {
     return _then(_value.copyWith(
       chainId: chainId == freezed
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      accounts: accounts == freezed
-          ? _value.accounts
-          : accounts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       networkId: networkId == freezed
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int?,
-      rpcUrl: rpcUrl == freezed
-          ? _value.rpcUrl
-          : rpcUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      accounts: accounts == freezed
+          ? _value.accounts
+          : accounts // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$$_SessionStatusCopyWith<$Res>
+abstract class _$SessionStatusCopyWith<$Res>
     implements $SessionStatusCopyWith<$Res> {
-  factory _$$_SessionStatusCopyWith(
-          _$_SessionStatus value, $Res Function(_$_SessionStatus) then) =
-      __$$_SessionStatusCopyWithImpl<$Res>;
+  factory _$SessionStatusCopyWith(
+          _SessionStatus value, $Res Function(_SessionStatus) then) =
+      __$SessionStatusCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {int? chainId, List<String> accounts, int? networkId, String? rpcUrl});
+  $Res call({int? chainId, int? networkId, List<String> accounts});
 }
 
 /// @nodoc
-class __$$_SessionStatusCopyWithImpl<$Res>
+class __$SessionStatusCopyWithImpl<$Res>
     extends _$SessionStatusCopyWithImpl<$Res>
-    implements _$$_SessionStatusCopyWith<$Res> {
-  __$$_SessionStatusCopyWithImpl(
-      _$_SessionStatus _value, $Res Function(_$_SessionStatus) _then)
-      : super(_value, (v) => _then(v as _$_SessionStatus));
+    implements _$SessionStatusCopyWith<$Res> {
+  __$SessionStatusCopyWithImpl(
+      _SessionStatus _value, $Res Function(_SessionStatus) _then)
+      : super(_value, (v) => _then(v as _SessionStatus));
 
   @override
-  _$_SessionStatus get _value => super._value as _$_SessionStatus;
+  _SessionStatus get _value => super._value as _SessionStatus;
 
   @override
   $Res call({
     Object? chainId = freezed,
-    Object? accounts = freezed,
     Object? networkId = freezed,
-    Object? rpcUrl = freezed,
+    Object? accounts = freezed,
   }) {
-    return _then(_$_SessionStatus(
+    return _then(_SessionStatus(
       chainId: chainId == freezed
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      accounts: accounts == freezed
-          ? _value._accounts
-          : accounts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       networkId: networkId == freezed
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int?,
-      rpcUrl: rpcUrl == freezed
-          ? _value.rpcUrl
-          : rpcUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      accounts: accounts == freezed
+          ? _value.accounts
+          : accounts // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -126,74 +130,56 @@ class __$$_SessionStatusCopyWithImpl<$Res>
 
 class _$_SessionStatus implements _SessionStatus {
   const _$_SessionStatus(
-      {this.chainId,
-      final List<String> accounts = const [],
-      this.networkId,
-      this.rpcUrl})
-      : _accounts = accounts;
+      {this.chainId, this.networkId, this.accounts = const []});
 
   @override
   final int? chainId;
-  final List<String> _accounts;
-  @override
-  @JsonKey()
-  List<String> get accounts {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_accounts);
-  }
-
   @override
   final int? networkId;
+  @JsonKey()
   @override
-  final String? rpcUrl;
+  final List<String> accounts;
 
   @override
   String toString() {
-    return 'SessionStatus(chainId: $chainId, accounts: $accounts, networkId: $networkId, rpcUrl: $rpcUrl)';
+    return 'SessionStatus(chainId: $chainId, networkId: $networkId, accounts: $accounts)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SessionStatus &&
+            other is _SessionStatus &&
             const DeepCollectionEquality().equals(other.chainId, chainId) &&
-            const DeepCollectionEquality().equals(other._accounts, _accounts) &&
             const DeepCollectionEquality().equals(other.networkId, networkId) &&
-            const DeepCollectionEquality().equals(other.rpcUrl, rpcUrl));
+            const DeepCollectionEquality().equals(other.accounts, accounts));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(chainId),
-      const DeepCollectionEquality().hash(_accounts),
       const DeepCollectionEquality().hash(networkId),
-      const DeepCollectionEquality().hash(rpcUrl));
+      const DeepCollectionEquality().hash(accounts));
 
   @JsonKey(ignore: true)
   @override
-  _$$_SessionStatusCopyWith<_$_SessionStatus> get copyWith =>
-      __$$_SessionStatusCopyWithImpl<_$_SessionStatus>(this, _$identity);
+  _$SessionStatusCopyWith<_SessionStatus> get copyWith =>
+      __$SessionStatusCopyWithImpl<_SessionStatus>(this, _$identity);
 }
 
 abstract class _SessionStatus implements SessionStatus {
   const factory _SessionStatus(
-      {final int? chainId,
-      final List<String> accounts,
-      final int? networkId,
-      final String? rpcUrl}) = _$_SessionStatus;
+      {int? chainId, int? networkId, List<String> accounts}) = _$_SessionStatus;
 
   @override
-  int? get chainId => throw _privateConstructorUsedError;
+  int? get chainId;
   @override
-  List<String> get accounts => throw _privateConstructorUsedError;
+  int? get networkId;
   @override
-  int? get networkId => throw _privateConstructorUsedError;
-  @override
-  String? get rpcUrl => throw _privateConstructorUsedError;
+  List<String> get accounts;
   @override
   @JsonKey(ignore: true)
-  _$$_SessionStatusCopyWith<_$_SessionStatus> get copyWith =>
+  _$SessionStatusCopyWith<_SessionStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
