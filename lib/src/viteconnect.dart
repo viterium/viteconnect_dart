@@ -12,13 +12,15 @@ import 'crypto/encrypted_payload.dart';
 import 'exceptions/exceptions.dart';
 import 'network/network.dart';
 import 'session/session.dart';
-import 'utils/bridge_utils.dart';
 import 'utils/event.dart';
 import 'utils/event_bus.dart';
 
+const viteSignAndSendTx = 'vite_signAndSendTx';
+const viteSignMessage = 'vite_signMessage';
+
 const viteSigningMethods = [
-  'vite_signAndSendTx',
-  'vite_signMessage',
+  viteSignAndSendTx,
+  viteSignMessage,
 ];
 
 typedef OnConnectRequest = void Function(SessionStatus status);
@@ -97,10 +99,6 @@ class ViteConnect {
       throw ViteConnectException(
         'Missing one of the required parameters: bridge / uri / session',
       );
-    }
-
-    if (bridge.isNotEmpty) {
-      bridge = BridgeUtils.getBridgeUrl(bridge);
     }
 
     if (uri.isNotEmpty) {
@@ -253,7 +251,7 @@ class ViteConnect {
     final response = JsonRpcResponse(
       id: session.handshakeId,
       error: {
-        'code': -32000,
+        'code': 11010,
         'message': message,
       },
     );
@@ -299,7 +297,7 @@ class ViteConnect {
   }
 
   /// Send a custom request.
-  Future<void> sendCustomRequest({
+  Future<dynamic> sendCustomRequest({
     int? id,
     required String method,
     required List<dynamic> params,
@@ -314,8 +312,15 @@ class ViteConnect {
     return _sendRequest(request);
   }
 
+  /// Send custom response
+  Future<void> sendResponse({required int id, Object? result, Object? error}) {
+    final response = JsonRpcResponse(id: id, result: result, error: error);
+
+    return _sendResponse(response);
+  }
+
   /// Kill the current session.
-  Future killSession({String? sessionError}) async {
+  Future<void> killSession({String? sessionError}) async {
     final message = sessionError ?? 'Session disconnected';
 
     final request = JsonRpcRequest(
@@ -421,7 +426,7 @@ class ViteConnect {
   }
 
   /// Sends a JSON-RPC-2 compliant request to invoke the given [method].
-  Future _sendRequest(
+  Future<dynamic> _sendRequest(
     JsonRpcRequest request, {
     String? topic,
     bool awaitResponse = true,
@@ -449,12 +454,12 @@ class ViteConnect {
       return;
     }
 
-    final completer = Completer.sync();
+    final completer = Completer<dynamic>.sync();
     _pendingRequests[request.id] = _Request(method, completer, Chain.current());
     return completer.future;
   }
 
-  Future _sendResponse(JsonRpcResponse response) async {
+  Future<void> _sendResponse(JsonRpcResponse response) async {
     final key = session.key;
     if (key == null) {
       return;
@@ -466,7 +471,7 @@ class ViteConnect {
       key: key,
     );
 
-    // Send the request
+    // Send the response
     _transport.send(
       payload: payload.toJson(),
       topic: session.peerId,
@@ -544,7 +549,7 @@ class ViteConnect {
     return true;
   }
 
-  Future _handleSessionResponse(Map<String, dynamic> params) async {
+  Future<void> _handleSessionResponse(Map<String, dynamic> params) async {
     final approved = params['approved'] ?? false;
     final connected = this.connected;
     if (approved && !connected) {
@@ -572,7 +577,7 @@ class ViteConnect {
     }
   }
 
-  Future _handleSessionDisconnect({
+  Future<void> _handleSessionDisconnect({
     String? errorMessage,
     bool forceClose = false,
   }) async {
