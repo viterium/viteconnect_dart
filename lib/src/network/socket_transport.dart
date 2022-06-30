@@ -45,7 +45,11 @@ class SocketTransport {
       onOpen: (reconnectAttempt) {
         pingTimer?.cancel();
         pingTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
-          print('ping');
+          assert(() {
+            print('ping');
+            return true;
+          }());
+
           _socket?.send('ping');
         });
         onOpen?.call(reconnectAttempt);
@@ -120,13 +124,20 @@ class SocketTransport {
   bool get connected => _socket?.connected ?? false;
 
   void _socketReceive(event) {
-    print('Socket Event: $event');
     if (event is! String) return;
 
     if (event == 'pong') {
-      print('pong');
+      assert(() {
+        print('pong');
+        return true;
+      }());
       return;
     }
+
+    assert(() {
+      print('Socket Event: $event');
+      return true;
+    }());
 
     try {
       final data = json.decode(event);

@@ -78,10 +78,6 @@ class ViteConnectCipher implements CipherBox {
     final hmacsha256 = Hmac.sha256();
     final secretKey = SecretKey(key);
     final chmac = await hmacsha256.calculateMac(unsigned, secretKey: secretKey);
-
-    final hexHmac = hex.encode(chmac.bytes);
-    print(hexHmac);
-    print(payload.hmac);
     return hex.encode(chmac.bytes) == payload.hmac;
   }
 
