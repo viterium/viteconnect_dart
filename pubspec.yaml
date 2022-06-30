@@ -1,5 +1,7 @@
 name: viteconnect
 description: Dart library for ViteConnect.
+homepage: https://viterium.io
+repository: https://github.com/viterium/viteconnect_dart
 version: 0.0.1
 
 environment:
