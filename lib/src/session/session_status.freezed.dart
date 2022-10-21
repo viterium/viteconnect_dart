@@ -12,24 +12,7 @@ part of 'session_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SessionStatusTearOff {
-  const _$SessionStatusTearOff();
-
-  _SessionStatus call(
-      {int? chainId, int? networkId, List<String> accounts = const []}) {
-    return _SessionStatus(
-      chainId: chainId,
-      networkId: networkId,
-      accounts: accounts,
-    );
-  }
-}
-
-/// @nodoc
-const $SessionStatus = _$SessionStatusTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SessionStatus {
@@ -46,80 +29,82 @@ mixin _$SessionStatus {
 abstract class $SessionStatusCopyWith<$Res> {
   factory $SessionStatusCopyWith(
           SessionStatus value, $Res Function(SessionStatus) then) =
-      _$SessionStatusCopyWithImpl<$Res>;
+      _$SessionStatusCopyWithImpl<$Res, SessionStatus>;
+  @useResult
   $Res call({int? chainId, int? networkId, List<String> accounts});
 }
 
 /// @nodoc
-class _$SessionStatusCopyWithImpl<$Res>
+class _$SessionStatusCopyWithImpl<$Res, $Val extends SessionStatus>
     implements $SessionStatusCopyWith<$Res> {
   _$SessionStatusCopyWithImpl(this._value, this._then);
 
-  final SessionStatus _value;
   // ignore: unused_field
-  final $Res Function(SessionStatus) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? chainId = freezed,
     Object? networkId = freezed,
-    Object? accounts = freezed,
+    Object? accounts = null,
   }) {
     return _then(_value.copyWith(
-      chainId: chainId == freezed
+      chainId: freezed == chainId
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      networkId: networkId == freezed
+      networkId: freezed == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int?,
-      accounts: accounts == freezed
+      accounts: null == accounts
           ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$SessionStatusCopyWith<$Res>
+abstract class _$$_SessionStatusCopyWith<$Res>
     implements $SessionStatusCopyWith<$Res> {
-  factory _$SessionStatusCopyWith(
-          _SessionStatus value, $Res Function(_SessionStatus) then) =
-      __$SessionStatusCopyWithImpl<$Res>;
+  factory _$$_SessionStatusCopyWith(
+          _$_SessionStatus value, $Res Function(_$_SessionStatus) then) =
+      __$$_SessionStatusCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? chainId, int? networkId, List<String> accounts});
 }
 
 /// @nodoc
-class __$SessionStatusCopyWithImpl<$Res>
-    extends _$SessionStatusCopyWithImpl<$Res>
-    implements _$SessionStatusCopyWith<$Res> {
-  __$SessionStatusCopyWithImpl(
-      _SessionStatus _value, $Res Function(_SessionStatus) _then)
-      : super(_value, (v) => _then(v as _SessionStatus));
+class __$$_SessionStatusCopyWithImpl<$Res>
+    extends _$SessionStatusCopyWithImpl<$Res, _$_SessionStatus>
+    implements _$$_SessionStatusCopyWith<$Res> {
+  __$$_SessionStatusCopyWithImpl(
+      _$_SessionStatus _value, $Res Function(_$_SessionStatus) _then)
+      : super(_value, _then);
 
-  @override
-  _SessionStatus get _value => super._value as _SessionStatus;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? chainId = freezed,
     Object? networkId = freezed,
-    Object? accounts = freezed,
+    Object? accounts = null,
   }) {
-    return _then(_SessionStatus(
-      chainId: chainId == freezed
+    return _then(_$_SessionStatus(
+      chainId: freezed == chainId
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      networkId: networkId == freezed
+      networkId: freezed == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int?,
-      accounts: accounts == freezed
-          ? _value.accounts
+      accounts: null == accounts
+          ? _value._accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -130,15 +115,20 @@ class __$SessionStatusCopyWithImpl<$Res>
 
 class _$_SessionStatus implements _SessionStatus {
   const _$_SessionStatus(
-      {this.chainId, this.networkId, this.accounts = const []});
+      {this.chainId, this.networkId, final List<String> accounts = const []})
+      : _accounts = accounts;
 
   @override
   final int? chainId;
   @override
   final int? networkId;
-  @JsonKey()
+  final List<String> _accounts;
   @override
-  final List<String> accounts;
+  @JsonKey()
+  List<String> get accounts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_accounts);
+  }
 
   @override
   String toString() {
@@ -149,28 +139,29 @@ class _$_SessionStatus implements _SessionStatus {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SessionStatus &&
-            const DeepCollectionEquality().equals(other.chainId, chainId) &&
-            const DeepCollectionEquality().equals(other.networkId, networkId) &&
-            const DeepCollectionEquality().equals(other.accounts, accounts));
+            other is _$_SessionStatus &&
+            (identical(other.chainId, chainId) || other.chainId == chainId) &&
+            (identical(other.networkId, networkId) ||
+                other.networkId == networkId) &&
+            const DeepCollectionEquality().equals(other._accounts, _accounts));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(chainId),
-      const DeepCollectionEquality().hash(networkId),
-      const DeepCollectionEquality().hash(accounts));
+  int get hashCode => Object.hash(runtimeType, chainId, networkId,
+      const DeepCollectionEquality().hash(_accounts));
 
   @JsonKey(ignore: true)
   @override
-  _$SessionStatusCopyWith<_SessionStatus> get copyWith =>
-      __$SessionStatusCopyWithImpl<_SessionStatus>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_SessionStatusCopyWith<_$_SessionStatus> get copyWith =>
+      __$$_SessionStatusCopyWithImpl<_$_SessionStatus>(this, _$identity);
 }
 
 abstract class _SessionStatus implements SessionStatus {
   const factory _SessionStatus(
-      {int? chainId, int? networkId, List<String> accounts}) = _$_SessionStatus;
+      {final int? chainId,
+      final int? networkId,
+      final List<String> accounts}) = _$_SessionStatus;
 
   @override
   int? get chainId;
@@ -180,6 +171,6 @@ abstract class _SessionStatus implements SessionStatus {
   List<String> get accounts;
   @override
   @JsonKey(ignore: true)
-  _$SessionStatusCopyWith<_SessionStatus> get copyWith =>
+  _$$_SessionStatusCopyWith<_$_SessionStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,32 +12,11 @@ part of 'web_socket_message.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 WebSocketMessage _$WebSocketMessageFromJson(Map<String, dynamic> json) {
   return _WebSocketMessage.fromJson(json);
 }
-
-/// @nodoc
-class _$WebSocketMessageTearOff {
-  const _$WebSocketMessageTearOff();
-
-  _WebSocketMessage call(
-      {required String topic, required String type, required String payload}) {
-    return _WebSocketMessage(
-      topic: topic,
-      type: type,
-      payload: payload,
-    );
-  }
-
-  WebSocketMessage fromJson(Map<String, Object?> json) {
-    return WebSocketMessage.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $WebSocketMessage = _$WebSocketMessageTearOff();
 
 /// @nodoc
 mixin _$WebSocketMessage {
@@ -55,79 +34,81 @@ mixin _$WebSocketMessage {
 abstract class $WebSocketMessageCopyWith<$Res> {
   factory $WebSocketMessageCopyWith(
           WebSocketMessage value, $Res Function(WebSocketMessage) then) =
-      _$WebSocketMessageCopyWithImpl<$Res>;
+      _$WebSocketMessageCopyWithImpl<$Res, WebSocketMessage>;
+  @useResult
   $Res call({String topic, String type, String payload});
 }
 
 /// @nodoc
-class _$WebSocketMessageCopyWithImpl<$Res>
+class _$WebSocketMessageCopyWithImpl<$Res, $Val extends WebSocketMessage>
     implements $WebSocketMessageCopyWith<$Res> {
   _$WebSocketMessageCopyWithImpl(this._value, this._then);
 
-  final WebSocketMessage _value;
   // ignore: unused_field
-  final $Res Function(WebSocketMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? topic = freezed,
-    Object? type = freezed,
-    Object? payload = freezed,
+    Object? topic = null,
+    Object? type = null,
+    Object? payload = null,
   }) {
     return _then(_value.copyWith(
-      topic: topic == freezed
+      topic: null == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$WebSocketMessageCopyWith<$Res>
+abstract class _$$_WebSocketMessageCopyWith<$Res>
     implements $WebSocketMessageCopyWith<$Res> {
-  factory _$WebSocketMessageCopyWith(
-          _WebSocketMessage value, $Res Function(_WebSocketMessage) then) =
-      __$WebSocketMessageCopyWithImpl<$Res>;
+  factory _$$_WebSocketMessageCopyWith(
+          _$_WebSocketMessage value, $Res Function(_$_WebSocketMessage) then) =
+      __$$_WebSocketMessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String topic, String type, String payload});
 }
 
 /// @nodoc
-class __$WebSocketMessageCopyWithImpl<$Res>
-    extends _$WebSocketMessageCopyWithImpl<$Res>
-    implements _$WebSocketMessageCopyWith<$Res> {
-  __$WebSocketMessageCopyWithImpl(
-      _WebSocketMessage _value, $Res Function(_WebSocketMessage) _then)
-      : super(_value, (v) => _then(v as _WebSocketMessage));
+class __$$_WebSocketMessageCopyWithImpl<$Res>
+    extends _$WebSocketMessageCopyWithImpl<$Res, _$_WebSocketMessage>
+    implements _$$_WebSocketMessageCopyWith<$Res> {
+  __$$_WebSocketMessageCopyWithImpl(
+      _$_WebSocketMessage _value, $Res Function(_$_WebSocketMessage) _then)
+      : super(_value, _then);
 
-  @override
-  _WebSocketMessage get _value => super._value as _WebSocketMessage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? topic = freezed,
-    Object? type = freezed,
-    Object? payload = freezed,
+    Object? topic = null,
+    Object? type = null,
+    Object? payload = null,
   }) {
-    return _then(_WebSocketMessage(
-      topic: topic == freezed
+    return _then(_$_WebSocketMessage(
+      topic: null == topic
           ? _value.topic
           : topic // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
@@ -160,35 +141,35 @@ class _$_WebSocketMessage implements _WebSocketMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WebSocketMessage &&
-            const DeepCollectionEquality().equals(other.topic, topic) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.payload, payload));
+            other is _$_WebSocketMessage &&
+            (identical(other.topic, topic) || other.topic == topic) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.payload, payload) || other.payload == payload));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(topic),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(payload));
 
   @JsonKey(ignore: true)
   @override
-  _$WebSocketMessageCopyWith<_WebSocketMessage> get copyWith =>
-      __$WebSocketMessageCopyWithImpl<_WebSocketMessage>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, topic, type, payload);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebSocketMessageCopyWith<_$_WebSocketMessage> get copyWith =>
+      __$$_WebSocketMessageCopyWithImpl<_$_WebSocketMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WebSocketMessageToJson(this);
+    return _$$_WebSocketMessageToJson(
+      this,
+    );
   }
 }
 
 abstract class _WebSocketMessage implements WebSocketMessage {
   const factory _WebSocketMessage(
-      {required String topic,
-      required String type,
-      required String payload}) = _$_WebSocketMessage;
+      {required final String topic,
+      required final String type,
+      required final String payload}) = _$_WebSocketMessage;
 
   factory _WebSocketMessage.fromJson(Map<String, dynamic> json) =
       _$_WebSocketMessage.fromJson;
@@ -201,6 +182,6 @@ abstract class _WebSocketMessage implements WebSocketMessage {
   String get payload;
   @override
   @JsonKey(ignore: true)
-  _$WebSocketMessageCopyWith<_WebSocketMessage> get copyWith =>
+  _$$_WebSocketMessageCopyWith<_$_WebSocketMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

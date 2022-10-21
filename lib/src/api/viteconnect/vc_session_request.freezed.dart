@@ -12,31 +12,11 @@ part of 'vc_session_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VCSessionRequest _$VCSessionRequestFromJson(Map<String, dynamic> json) {
   return _VCSessionRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$VCSessionRequestTearOff {
-  const _$VCSessionRequestTearOff();
-
-  _VCSessionRequest call({int? chainId, String? peerId, PeerMeta? peerMeta}) {
-    return _VCSessionRequest(
-      chainId: chainId,
-      peerId: peerId,
-      peerMeta: peerMeta,
-    );
-  }
-
-  VCSessionRequest fromJson(Map<String, Object?> json) {
-    return VCSessionRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $VCSessionRequest = _$VCSessionRequestTearOff();
 
 /// @nodoc
 mixin _$VCSessionRequest {
@@ -54,21 +34,24 @@ mixin _$VCSessionRequest {
 abstract class $VCSessionRequestCopyWith<$Res> {
   factory $VCSessionRequestCopyWith(
           VCSessionRequest value, $Res Function(VCSessionRequest) then) =
-      _$VCSessionRequestCopyWithImpl<$Res>;
+      _$VCSessionRequestCopyWithImpl<$Res, VCSessionRequest>;
+  @useResult
   $Res call({int? chainId, String? peerId, PeerMeta? peerMeta});
 
   $PeerMetaCopyWith<$Res>? get peerMeta;
 }
 
 /// @nodoc
-class _$VCSessionRequestCopyWithImpl<$Res>
+class _$VCSessionRequestCopyWithImpl<$Res, $Val extends VCSessionRequest>
     implements $VCSessionRequestCopyWith<$Res> {
   _$VCSessionRequestCopyWithImpl(this._value, this._then);
 
-  final VCSessionRequest _value;
   // ignore: unused_field
-  final $Res Function(VCSessionRequest) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? chainId = freezed,
@@ -76,40 +59,42 @@ class _$VCSessionRequestCopyWithImpl<$Res>
     Object? peerMeta = freezed,
   }) {
     return _then(_value.copyWith(
-      chainId: chainId == freezed
+      chainId: freezed == chainId
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      peerId: peerId == freezed
+      peerId: freezed == peerId
           ? _value.peerId
           : peerId // ignore: cast_nullable_to_non_nullable
               as String?,
-      peerMeta: peerMeta == freezed
+      peerMeta: freezed == peerMeta
           ? _value.peerMeta
           : peerMeta // ignore: cast_nullable_to_non_nullable
               as PeerMeta?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PeerMetaCopyWith<$Res>? get peerMeta {
     if (_value.peerMeta == null) {
       return null;
     }
 
     return $PeerMetaCopyWith<$Res>(_value.peerMeta!, (value) {
-      return _then(_value.copyWith(peerMeta: value));
+      return _then(_value.copyWith(peerMeta: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$VCSessionRequestCopyWith<$Res>
+abstract class _$$_VCSessionRequestCopyWith<$Res>
     implements $VCSessionRequestCopyWith<$Res> {
-  factory _$VCSessionRequestCopyWith(
-          _VCSessionRequest value, $Res Function(_VCSessionRequest) then) =
-      __$VCSessionRequestCopyWithImpl<$Res>;
+  factory _$$_VCSessionRequestCopyWith(
+          _$_VCSessionRequest value, $Res Function(_$_VCSessionRequest) then) =
+      __$$_VCSessionRequestCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int? chainId, String? peerId, PeerMeta? peerMeta});
 
   @override
@@ -117,32 +102,30 @@ abstract class _$VCSessionRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$VCSessionRequestCopyWithImpl<$Res>
-    extends _$VCSessionRequestCopyWithImpl<$Res>
-    implements _$VCSessionRequestCopyWith<$Res> {
-  __$VCSessionRequestCopyWithImpl(
-      _VCSessionRequest _value, $Res Function(_VCSessionRequest) _then)
-      : super(_value, (v) => _then(v as _VCSessionRequest));
+class __$$_VCSessionRequestCopyWithImpl<$Res>
+    extends _$VCSessionRequestCopyWithImpl<$Res, _$_VCSessionRequest>
+    implements _$$_VCSessionRequestCopyWith<$Res> {
+  __$$_VCSessionRequestCopyWithImpl(
+      _$_VCSessionRequest _value, $Res Function(_$_VCSessionRequest) _then)
+      : super(_value, _then);
 
-  @override
-  _VCSessionRequest get _value => super._value as _VCSessionRequest;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? chainId = freezed,
     Object? peerId = freezed,
     Object? peerMeta = freezed,
   }) {
-    return _then(_VCSessionRequest(
-      chainId: chainId == freezed
+    return _then(_$_VCSessionRequest(
+      chainId: freezed == chainId
           ? _value.chainId
           : chainId // ignore: cast_nullable_to_non_nullable
               as int?,
-      peerId: peerId == freezed
+      peerId: freezed == peerId
           ? _value.peerId
           : peerId // ignore: cast_nullable_to_non_nullable
               as String?,
-      peerMeta: peerMeta == freezed
+      peerMeta: freezed == peerMeta
           ? _value.peerMeta
           : peerMeta // ignore: cast_nullable_to_non_nullable
               as PeerMeta?,
@@ -174,33 +157,36 @@ class _$_VCSessionRequest implements _VCSessionRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _VCSessionRequest &&
-            const DeepCollectionEquality().equals(other.chainId, chainId) &&
-            const DeepCollectionEquality().equals(other.peerId, peerId) &&
-            const DeepCollectionEquality().equals(other.peerMeta, peerMeta));
+            other is _$_VCSessionRequest &&
+            (identical(other.chainId, chainId) || other.chainId == chainId) &&
+            (identical(other.peerId, peerId) || other.peerId == peerId) &&
+            (identical(other.peerMeta, peerMeta) ||
+                other.peerMeta == peerMeta));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(chainId),
-      const DeepCollectionEquality().hash(peerId),
-      const DeepCollectionEquality().hash(peerMeta));
 
   @JsonKey(ignore: true)
   @override
-  _$VCSessionRequestCopyWith<_VCSessionRequest> get copyWith =>
-      __$VCSessionRequestCopyWithImpl<_VCSessionRequest>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, chainId, peerId, peerMeta);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_VCSessionRequestCopyWith<_$_VCSessionRequest> get copyWith =>
+      __$$_VCSessionRequestCopyWithImpl<_$_VCSessionRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VCSessionRequestToJson(this);
+    return _$$_VCSessionRequestToJson(
+      this,
+    );
   }
 }
 
 abstract class _VCSessionRequest implements VCSessionRequest {
   const factory _VCSessionRequest(
-      {int? chainId, String? peerId, PeerMeta? peerMeta}) = _$_VCSessionRequest;
+      {final int? chainId,
+      final String? peerId,
+      final PeerMeta? peerMeta}) = _$_VCSessionRequest;
 
   factory _VCSessionRequest.fromJson(Map<String, dynamic> json) =
       _$_VCSessionRequest.fromJson;
@@ -213,6 +199,6 @@ abstract class _VCSessionRequest implements VCSessionRequest {
   PeerMeta? get peerMeta;
   @override
   @JsonKey(ignore: true)
-  _$VCSessionRequestCopyWith<_VCSessionRequest> get copyWith =>
+  _$$_VCSessionRequestCopyWith<_$_VCSessionRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
